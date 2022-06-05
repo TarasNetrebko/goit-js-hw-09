@@ -40,7 +40,7 @@ function startTimerHandler() {
 function timer() {
     // console.log("Tik");
     const timeLeft = fp.selectedDates[0] - new Date();
-    const value = convertMs(delta);
+    const value = convertMs(timeLeft);
     if (timeLeft <= 0) {
         clearInterval(interval);
         Notiflix.Notify.success("Yep! Time's up");
