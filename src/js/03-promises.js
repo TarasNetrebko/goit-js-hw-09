@@ -1,6 +1,5 @@
 import Notiflix from "notiflix";
 
-const form = document.querySelector(".form");
 const submitBtn = document.querySelector("button");
 const delay = document.querySelector(".delay");
 const amount = document.querySelector(".amount");
