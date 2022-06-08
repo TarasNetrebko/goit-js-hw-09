@@ -19,15 +19,23 @@ function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
   setTimeout(() => {
     if (shouldResolve) {
-    // Fulfill    
-      Promise.resolve(`Fulfilled promise ${position} in ${delay}ms`).then((value) => Notiflix.Notify.success(value));  
-  } else {
-    // Reject
-      Promise.reject(`Rejected promise ${position} in ${delay}ms`).catch((error) => Notiflix.Notify.failure(error));
-  }
+      // Fulfill    
+      Promise.resolve({ position, delay }).then((value) => {
+        Notiflix.Notify.success(`Fulfilled promise ${value.position} in ${value.delay}ms`);
+        // console.log(value);
+      })
+          
+    } else {
+      // Reject
+      Promise.reject({ position, delay }).catch((error) => {
+        Notiflix.Notify.failure(`Rejected promise ${error.position} in ${error.delay}ms`);
+        // console.log(error);
+      });
+}
   }, delay)
   
 }
+
 
 
 // Notiflix.Notify.success(`Fulfilled promise ${position} in ${delay}ms`)
